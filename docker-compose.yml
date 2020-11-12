@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  tweet_collect:
+    build: tweet_collect/
+    volumes:
+    - ./tweet_collect/:/app
+    depends_on:
+    - tweet_mongodb
+    container_name: 'tweet_collect'
+    restart: 'always'
+
+  tweet_mongodb:
+    image: mongo
+    ports:
+    - 27017
+    container_name: 'tweet_mongodb'
+    restart: 'always'
+
+  etl:
+    build: etl/
+    volumes:
+    - ./etl/:/app
+    depends_on:
+    - tweet_mongodb
+    - tweet_postgres
+    container_name: 'etl'
+    restart: 'always'
+
+  tweet_postgres:
+    image: postgres
+    ports:
+    - 5555:5432
+    environment:
+    - POSTGRES_PASSWORD='your_password_here'
+    container_name: 'tweet_postgres'
+    restart: 'always'
