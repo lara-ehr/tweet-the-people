@@ -9,7 +9,7 @@ In 2020, like in 2016, polling drastically misestimated the electoral performanc
 
 ## Approach and Features
 
-Built using Docker, MongoDB, Postgres, tweepy, VADER, geocoder, SQLAlchemy, pymongo. Twitter data streamed from 28 September 2020 (the day before the first presidential candidate debate between Joe Biden and Donald Trump) to 8 November 2020 (the day after Joe Biden was projected as the election winner by the AP). 
+Built using Docker, MongoDB, Postgres, tweepy, VADER, geocoder, SQLAlchemy, pymongo. Twitter data were streamed from 28 September 2020 (the day before the first presidential candidate debate between Joe Biden and Donald Trump) to 8 November 2020 (the day after Joe Biden was projected as the election winner by the AP). 
 
 - **Data collection using a Docker architecture:** There are 4 Docker containers: one runs the tweet collection script (tweet_collect), one runs the ETL (etl), one hosts a MongoDB database for collecting tweets (tweet_mongodb), and one hosts a Postgres database for the transformed tweets (tweet_postgres).
 - **Taming the firehose:** My sampling approach streams tweets about one of 4 candidates for roughly a minute each, then waits for ca. 5 minutes before switching politicians and starting again. This avoids the problem of the "Twitter firehose:" streaming tweets that contain 4 politicians' names generates a huge quantity of tweets, quickly running into the Twitter API's rate limitations. Streaming times are jittered to help avoid getting shut down by the Twitter API. And stream times for Mike Pence are longer than for other candidates because Twitter doesn't seem to have a whole lot to say about him (this was an attempt to avoid a class imbalance).
