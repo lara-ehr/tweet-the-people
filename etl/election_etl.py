@@ -13,8 +13,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 from shapely.geometry import Point, Polygon
 
-from postgres_credentials import *
-from mongodb_credentials import *
+from credentials import *
 
 # initialise NLP tools
 SENT_ANALYSIS = SentimentIntensityAnalyzer()
@@ -160,7 +159,7 @@ def clean_text(text, handles, hashtags):
     Returns text that has been tokenised and stripped of handles, hashtags, RT abbreviations and URLs
     '''
     combined = handles + hashtags + ['RT', 'amp', '\n']
-    doc = nlp(text)
+    doc = NLP(text)
     stripped = [token.orth_ for token in doc if not token.is_punct]
     cleaned = [str(word) for word in stripped if word not in combined and not word.startswith('https')]
     cleaned = ' '.join(cleaned)

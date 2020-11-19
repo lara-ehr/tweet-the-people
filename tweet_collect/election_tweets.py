@@ -37,9 +37,8 @@ def authenticate():
     access_token = 'string with your access token'
     access_token_secret = 'string with your access token secret'
     '''
-    auth = OAuthHandler(credentials.consumer_key, credentials.consumer_secret)
-    auth.set_access_token(credentials.access_token,
-                          credentials.access_token_secret)
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
     return auth
 
 
