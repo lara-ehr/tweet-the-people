@@ -1,11 +1,18 @@
 # Tweet the People
 
-Tracks Twitter sentiment about the 2020 US presidential election. See it in action here: http://laraehr.pythonanywhere.com/
+Tracks Twitter sentiment about the 2020 US presidential election.
+
+**See it in action here: http://laraehr.pythonanywhere.com/**
+
 The GitHub repo for the front-end is here: https://github.com/lara-ehr/tweet-the-people-vizweb
 
 ## Aims
 
 In 2020, like in 2016, polling drastically misestimated the electoral performance of the US presidential election candidates. The aim of this project is to put an ear to the ground, using Twitter data and sentiment analysis to understand what issues potential voters are talking about, how they feel about them and how that differs based on users' location in the US.
+
+## Demo
+
+![Election tweet sentiment plot demo](demo_tweetviz.gif)
 
 ## Approach and Features
 
