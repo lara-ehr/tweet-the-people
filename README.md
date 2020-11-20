@@ -35,3 +35,6 @@ Built using Docker, MongoDB, Postgres, tweepy, VADER, geocoder, SQLAlchemy, pymo
 - Download tweet-the-people.
 - Get a Twitter developer account if you don't already have one (https://developer.twitter.com/en/apply-for-access). Adapt the `credentials.py` file with your credentials.
 - If you're using non-default ports, adapt docker-compose.yml and the Dockerfiles in each directory accordingly. Also adapt the `credentials.py` scripts.
+- In your command line interface, navigate to the tweet-the-people directory.
+  - Build the containers by typing `docker-compose build`. 
+  - Get the containers running by typing `docker-compose up`.
